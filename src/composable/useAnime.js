@@ -12,9 +12,7 @@ export const useAnime = () => {
   /* Fetch anime data and setup the store */
 
   const fetchAnimeList = () => {
-    axios
-      .get("https://api.jikan.moe/v4/anime")
-      .then((response) => onAnimeListResponse(response));
+    axios.get(ANIME_API_URL).then((response) => onAnimeListResponse(response));
   };
 
   const onAnimeListResponse = (response) => {
