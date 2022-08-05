@@ -3,14 +3,13 @@
     <AppHeader />
     <nav class="sidebar">Sidebar</nav>
     <main class="main-content">
-      <AnimeList />
+      <router-view />
     </main>
   </div>
 </template>
 
 <script setup>
 import AppHeader from "./components/layout/AppHeader.vue";
-import AnimeList from "./components/AnimeList/AnimeList.vue";
 </script>
 
 <style>
