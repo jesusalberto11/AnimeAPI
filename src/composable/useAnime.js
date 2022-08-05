@@ -7,7 +7,7 @@ export const useAnime = () => {
 
   const { animes } = storeToRefs(animeStore);
 
-  const ANIME_API_URL = "https://api.jikan.moe/v4/anime";
+  const ANIME_API_URL = "https://api.jikan.moe/v4/anime?q=&page=1";
 
   /* Fetch anime data and setup the store */
 
@@ -16,6 +16,7 @@ export const useAnime = () => {
   };
 
   const onAnimeListResponse = (response) => {
+    console.log(response.data);
     animeStore.setAnimes(response.data.data);
   };
 
