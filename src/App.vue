@@ -3,29 +3,14 @@
     <AppHeader />
     <nav class="sidebar">Sidebar</nav>
     <main class="main-content">
-      Animes:
-      <div v-if="animes">
-        <div v-for="anime in animes" v-bind:key="anime.malId">
-          <li>
-            {{ anime.title }}
-          </li>
-        </div>
-      </div>
+      <AnimeList />
     </main>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from "vue";
-import { useAnime } from "./composable/useAnime";
-
 import AppHeader from "./components/layout/AppHeader.vue";
-
-const { animes, fetchAnimeList } = useAnime();
-
-onMounted(() => {
-  fetchAnimeList();
-});
+import AnimeList from "./components/AnimeList/AnimeList.vue";
 </script>
 
 <style>
@@ -55,11 +40,11 @@ body {
 
 .sidebar {
   grid-area: sidebar;
-  background-color: antiquewhite;
+  background-color: #2f2f2f;
 }
 
 .main-content {
   grid-area: content;
-  background-color: brown;
+  background-color: #181818;
 }
 </style>
