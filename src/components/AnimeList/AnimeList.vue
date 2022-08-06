@@ -1,7 +1,7 @@
 <template>
   <div class="list-container">
-    <div v-for="anime in animes" v-bind:key="anime.malId">
-      <div class="anime-card">
+    <div v-for="anime in props.animes" v-bind:key="anime?.mal_id">
+      <div class="anime-card" @click="onClickCard(anime?.mal_id)">
         <img
           v-bind:src="anime?.images.jpg.image_url"
           v-bind:alt="anime?.title"
@@ -15,14 +15,18 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
-import { useAnime } from "@/composable/useAnime.js";
+import { defineProps } from "vue";
 
-const { animes, fetchAnimeList } = useAnime();
-
-onMounted(() => {
-  fetchAnimeList();
+const props = defineProps({
+  animes: {
+    type: Array,
+    required: true,
+  },
 });
+
+const onClickCard = (id) => {
+  console.log(id);
+};
 </script>
 
 <style scoped>
