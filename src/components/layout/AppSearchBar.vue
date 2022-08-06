@@ -36,7 +36,7 @@ const onSearch = () => {
     return;
 
   fetchAnimeQuery(searchQuery.value);
-  router.push({ path: "animes", query: { search: searchQuery.value } });
+  router.push({ path: "results", query: { search: searchQuery.value } });
   searchQuery.value = "";
 };
 </script>
