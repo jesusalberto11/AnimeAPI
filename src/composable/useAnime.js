@@ -41,6 +41,23 @@ export const useAnime = () => {
     animeStore.setLoading(false);
   };
 
+  /* Fetch anime query */
+
+  const fetchAnimeQuery = (query) => {
+    animeStore.setLoading(true);
+    let QUERY_URL = `https://api.jikan.moe/v4/anime?q=&letter=${query}&page=1`;
+
+    axios
+      .get(QUERY_URL)
+      .then((response) => onQuerySearchResponse(response))
+      .catch((error) => console.log("Error in fetchAnimeList: ", error));
+  };
+
+  const onQuerySearchResponse = (response) => {
+    animeStore.setAnimes(response.data.data);
+    animeStore.setLoading(false);
+  };
+
   return {
     // Propierties
     animes,
@@ -50,5 +67,6 @@ export const useAnime = () => {
     // Methods
     fetchAnimeList,
     fetchAnime,
+    fetchAnimeQuery,
   };
 };
