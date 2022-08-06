@@ -16,6 +16,9 @@
 
 <script setup>
 import { defineProps } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const props = defineProps({
   animes: {
@@ -24,8 +27,11 @@ const props = defineProps({
   },
 });
 
-const onClickCard = (id) => {
-  console.log(id);
+const onClickCard = (animeId) => {
+  router.push({
+    name: "anime",
+    params: { id: animeId },
+  });
 };
 </script>
 
