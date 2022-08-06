@@ -1,6 +1,6 @@
 <template>
   <div class="page-container">
-    <div v-if="animes.length === 0">
+    <div v-if="isLoading">
       <h1>Loading...</h1>
     </div>
     <div v-else>
@@ -14,7 +14,7 @@ import { onMounted } from "vue";
 import { useAnime } from "@/composable/useAnime.js";
 import AnimeList from "../components/AnimeList/AnimeList.vue";
 
-const { animes, fetchAnimeList } = useAnime();
+const { animes, isLoading, fetchAnimeList } = useAnime();
 
 onMounted(() => {
   fetchAnimeList();
