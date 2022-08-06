@@ -16,7 +16,9 @@
           />
         </svg>
       </button>
-      <a href="#" class="logo"><span class="logo-name">MYANIMES</span></a>
+      <router-link to="/">
+        <a class="logo"><span class="logo-name">MYANIMES</span></a>
+      </router-link>
     </div>
     <div class="search-bar">
       <input type="text" placeholder="Buscar anime..." />
