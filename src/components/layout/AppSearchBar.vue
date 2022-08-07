@@ -21,11 +21,9 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { useAnime } from "@/composable/useAnime";
 
 const router = useRouter();
 const searchQuery = ref("");
-const { fetchAnimeQuery } = useAnime();
 
 const onSearch = () => {
   if (
@@ -35,9 +33,7 @@ const onSearch = () => {
   )
     return;
 
-  fetchAnimeQuery(searchQuery.value);
   router.push({ path: "results", query: { search: searchQuery.value } });
-  searchQuery.value = "";
 };
 </script>
 
