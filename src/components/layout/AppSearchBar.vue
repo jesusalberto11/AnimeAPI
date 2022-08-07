@@ -33,7 +33,7 @@ const onSearch = () => {
   )
     return;
 
-  router.push({ path: "results", query: { search: searchQuery.value } });
+  router.push({ path: "/results", query: { search: searchQuery.value } });
 };
 </script>
 
