@@ -11,7 +11,7 @@ export const useAnime = () => {
 
   const fetchAnimeList = (page = 1) => {
     animeStore.setLoading(true);
-    let ANIMES_API_URL = `https://api.jikan.moe/v4/anime?q=&page=${page}`;
+    let ANIMES_API_URL = `https://api.jikan.moe/v4/anime?q=&page=${page}&sfw=true`;
 
     axios
       .get(ANIMES_API_URL)
@@ -45,7 +45,7 @@ export const useAnime = () => {
 
   const fetchAnimeQuery = (query) => {
     animeStore.setLoading(true);
-    let QUERY_URL = `https://api.jikan.moe/v4/anime?q=&letter=${query}&page=1`;
+    let QUERY_URL = `https://api.jikan.moe/v4/anime?q=&letter=${query}&page=1&sfw=true`;
 
     axios
       .get(QUERY_URL)
