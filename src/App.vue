@@ -13,7 +13,7 @@ import { ref } from "vue";
 import AppHeader from "./components/layout/AppHeader.vue";
 import AppSidebar from "./components/layout/AppSidebar.vue";
 
-const isSidebarExpanded = ref(true);
+const isSidebarExpanded = ref(false);
 
 const toggleSidebar = () => {
   isSidebarExpanded.value = !isSidebarExpanded.value;
