@@ -134,7 +134,17 @@
   </aside>
 </template>
 
-<script setup></script>
+<script setup>
+import { watch } from "@vue/runtime-core";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+
+watch(route, (currentRoute) => {
+  /* TODO: Implement active item class using route name*/
+  console.log(currentRoute?.name);
+});
+</script>
 
 <style>
 .sidebar {
