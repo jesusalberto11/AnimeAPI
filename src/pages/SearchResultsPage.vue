@@ -1,6 +1,5 @@
 <template>
   <div class="search-results-container">
-    <h1>Hello world serchresults page! {{ searchQuery }}</h1>
     <div v-if="isLoading">
       <h1>Loading...</h1>
     </div>
@@ -39,4 +38,14 @@ watch(route, (currentValue) => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.search-results-container {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+</style>
