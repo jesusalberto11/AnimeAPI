@@ -1,7 +1,7 @@
 <template>
-  <div class="app-container">
-    <AppHeader />
-    <nav class="sidebar">Sidebar</nav>
+  <div class="app-container" :class="{ active: isSidebarExpanded }">
+    <AppHeader @expand-sidebar="toggleSidebar" />
+    <AppSidebar />
     <main class="main-content">
       <router-view />
     </main>
@@ -9,7 +9,15 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import AppHeader from "./components/layout/AppHeader.vue";
+import AppSidebar from "./components/layout/AppSidebar.vue";
+
+const isSidebarExpanded = ref(true);
+
+const toggleSidebar = () => {
+  isSidebarExpanded.value = !isSidebarExpanded.value;
+};
 </script>
 
 <style>
@@ -37,9 +45,8 @@ body {
   transition: all 0.3s ease;
 }
 
-.sidebar {
-  grid-area: sidebar;
-  background-color: #2f2f2f;
+.app-container.active {
+  grid-template-columns: minmax(300px, 18%) auto;
 }
 
 .main-content {
