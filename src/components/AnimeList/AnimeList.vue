@@ -35,17 +35,19 @@ const onClickCard = (animeId) => {
 
 <style scoped>
 .list-container {
+  height: 100vh;
+  width: 100%;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 25px;
-  padding-top: 25px;
-  padding-bottom: 25px;
 
-  height: 100vh;
-  overflow-y: scroll;
+  padding-top: 25px;
   padding-bottom: 100px;
+
+  overflow-y: scroll;
 }
 </style>
