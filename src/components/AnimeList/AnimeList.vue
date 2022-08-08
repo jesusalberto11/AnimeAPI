@@ -1,13 +1,13 @@
 <template>
-  <div class="list-container">
-    <div v-for="anime in props.animes" v-bind:key="anime?.mal_id">
+  <transition-group name="list" tag="div" class="list-container" appear>
+    <div v-for="anime in props.animes" v-bind:key="anime.mal_id">
       <AnimeCard
         :title="anime?.title"
         :imageSource="anime?.images.jpg.image_url"
         @click="onClickCard(anime?.mal_id)"
       />
     </div>
-  </div>
+  </transition-group>
 </template>
 
 <script setup>
@@ -49,5 +49,16 @@ const onClickCard = (animeId) => {
   padding-bottom: 100px;
 
   overflow-y: scroll;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
 }
 </style>
