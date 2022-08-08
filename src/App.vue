@@ -27,6 +27,30 @@ const toggleSidebar = () => {
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+*::-webkit-scrollbar-track {
+  background: #3d3c3c;
+  border-radius: 4px;
+}
+
 body {
   color: #fff;
   font-family: "Roboto Mono";
