@@ -3,7 +3,11 @@
     <AppHeader @expand-sidebar="toggleSidebar" />
     <AppSidebar />
     <main class="main-content">
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </main>
   </div>
 </template>
@@ -72,5 +76,15 @@ body {
 .main-content {
   grid-area: content;
   background-color: #181818;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease-out;
 }
 </style>
