@@ -45,6 +45,10 @@ const onClickCard = (animeId) => {
   gap: 25px;
   padding-top: 25px;
   padding-bottom: 25px;
+
+  height: 100vh;
+  overflow-y: scroll;
+  padding-bottom: 100px;
 }
 
 .anime-card:hover {

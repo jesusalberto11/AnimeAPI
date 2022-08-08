@@ -30,6 +30,7 @@ const toggleSidebar = () => {
 body {
   color: #fff;
   font-family: "Roboto Mono";
+  overflow-y: hidden;
 }
 
 .app-container {
