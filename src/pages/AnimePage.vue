@@ -2,26 +2,28 @@
   <div class="anime-page-container">
     <h3 v-if="isLoading">Loading...</h3>
     <div v-else>
-      <div class="anime-details">
-        <div class="anime-title-logo">
-          <h3>{{ anime?.title }}</h3>
-          <img
-            v-bind:src="anime?.images.jpg.image_url"
-            v-bind:alt="anime?.title"
-            v-bind:height="340"
-            v-bind:width="220"
-          />
-          <p>Titles:</p>
-          <div v-for="title in anime?.titles" v-bind:key="title">
-            <p>{{ title?.type }} - {{ title?.title }}</p>
+      <transition name="fade" mode="out-in" appear>
+        <div class="anime-details">
+          <div class="anime-title-logo">
+            <h3>{{ anime?.title }}</h3>
+            <img
+              v-bind:src="anime?.images.jpg.image_url"
+              v-bind:alt="anime?.title"
+              v-bind:height="340"
+              v-bind:width="220"
+            />
+            <p>Titles:</p>
+            <div v-for="title in anime?.titles" v-bind:key="title">
+              <p>{{ title?.type }} - {{ title?.title }}</p>
+            </div>
+          </div>
+          <div class="anime-data">
+            <h3>Synopis:</h3>
+            <p>{{ anime?.synopsis }}</p>
+            <hr />
           </div>
         </div>
-        <div class="anime-data">
-          <h3>Synopis:</h3>
-          <p>{{ anime?.synopsis }}</p>
-          <hr />
-        </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -76,5 +78,15 @@ onMounted(() => {
   max-width: 800px;
   max-height: 200px;
   overflow-y: auto;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease-out;
 }
 </style>
