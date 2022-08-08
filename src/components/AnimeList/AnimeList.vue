@@ -1,15 +1,11 @@
 <template>
   <div class="list-container">
     <div v-for="anime in props.animes" v-bind:key="anime?.mal_id">
-      <div class="anime-card" @click="onClickCard(anime?.mal_id)">
-        <img
-          v-bind:src="anime?.images.jpg.image_url"
-          v-bind:alt="anime?.title"
-          v-bind:height="340"
-          v-bind:width="220"
-        />
-        <p class="anime-title">{{ anime?.title }}</p>
-      </div>
+      <AnimeCard
+        :title="anime?.title"
+        :imageSource="anime?.images.jpg.image_url"
+        @click="onClickCard(anime?.mal_id)"
+      />
     </div>
   </div>
 </template>
@@ -17,6 +13,8 @@
 <script setup>
 import { defineProps } from "vue";
 import { useRouter } from "vue-router";
+
+import AnimeCard from "./AnimeCard.vue";
 
 const router = useRouter();
 
@@ -49,20 +47,5 @@ const onClickCard = (animeId) => {
   height: 100vh;
   overflow-y: scroll;
   padding-bottom: 100px;
-}
-
-.anime-card:hover {
-  box-shadow: 0 0 5px yellow, 0 0 5px yellowgreen, 0 0 10px yellow;
-}
-
-.anime-title {
-  background-color: brown;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  text-align: center;
-  height: 50px;
-  width: 220px;
 }
 </style>
