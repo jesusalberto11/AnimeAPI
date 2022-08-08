@@ -12,7 +12,7 @@
             v-bind:width="220"
           />
           <p>Titles:</p>
-          <div v-for="title in anime.titles" v-bind:key="title">
+          <div v-for="title in anime?.titles" v-bind:key="title">
             <p>{{ title?.type }} - {{ title?.title }}</p>
           </div>
         </div>
