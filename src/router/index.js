@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage.vue";
 import AnimeListPage from "../pages/AnimeListPage.vue";
 import AnimePage from "../pages/AnimePage";
 import SearchResultsPage from "../pages/SearchResultsPage.vue";
+import AboutPage from "../pages/AboutPage.vue";
 import PathNotFound from "../pages/PathNotFound.vue";
 
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
   { path: "/animes", name: "animes", component: AnimeListPage },
   { path: "/animes/anime/:id", name: "anime", component: AnimePage },
   { path: "/results", name: "results", component: SearchResultsPage },
+  { path: "/about", name: "about", component: AboutPage },
   { path: "/:pathMatch(.*)*", name: "not-found", component: PathNotFound },
 ];
 
