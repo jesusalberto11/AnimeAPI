@@ -6,12 +6,12 @@
       v-bind:height="340"
       v-bind:width="220"
     />
-    <p class="anime-title">{{ props?.title }}</p>
+    <p class="anime-title" :class="checkTitleLength">{{ props?.title }}</p>
   </div>
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, computed } from "vue";
 
 const props = defineProps({
   imageSource: {
@@ -22,6 +22,15 @@ const props = defineProps({
     type: String,
     required: true,
   },
+});
+
+const checkTitleLength = computed(() => {
+  return {
+    "title-normal": props?.title.length < 15,
+    "title-short": props?.title.length >= 15 && props?.title.length < 30,
+    "title-extra-short": props?.title.length >= 30 && props?.title.length < 45,
+    "title-extra-extra-short": props?.title.length >= 45,
+  };
 });
 </script>
 
@@ -39,5 +48,30 @@ const props = defineProps({
   text-align: center;
   height: 50px;
   width: 220px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.title-normal {
+  font-size: 19px;
+}
+
+.title-short {
+  font-size: 16px;
+}
+
+.title-extra-short {
+  font-size: 13px;
+}
+
+.title-extra-extra-short {
+  font-size: 10px;
+}
+
+.title-short,
+.title-normal,
+.title-extra-short,
+.title-extra-extra-short {
+  text-align: center;
 }
 </style>
