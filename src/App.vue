@@ -46,11 +46,6 @@ const toggleSidebar = () => {
   background-color: #999999;
 }
 
-*::-webkit-scrollbar-track {
-  background: #3d3c3c;
-  border-radius: 4px;
-}
-
 body {
   color: #fff;
   font-family: "Roboto Mono";
