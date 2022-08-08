@@ -48,4 +48,28 @@ const onClickCard = (animeId) => {
   overflow-y: scroll;
   padding-bottom: 100px;
 }
+
+.list-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.list-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.list-container::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.list-container::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.list-container::-webkit-scrollbar-track {
+  background: #3d3c3c;
+  border-radius: 4px;
+}
 </style>
