@@ -18,8 +18,8 @@
         <a href="https://router.vuejs.org/" target="_SEJ" rel="”noreferrer”">
           Vue Router V.4
         </a>
-        <a href="https://vuestic.dev/" target="_SEJ" rel="”noreferrer”">
-          Vuestic UI
+        <a href="https://pinia.vuejs.org/" target="_SEJ" rel="”noreferrer”">
+          Pinia
         </a>
         <a href="https://docs.api.jikan.moe/" target="_SEJ" rel="”noreferrer”">
           Jikan API
