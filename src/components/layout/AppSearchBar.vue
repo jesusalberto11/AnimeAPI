@@ -1,6 +1,11 @@
 <template>
   <div class="search-bar">
-    <input type="text" placeholder="Buscar anime..." v-model="searchQuery" />
+    <input
+      type="text"
+      placeholder="Buscar anime..."
+      v-model="searchQuery"
+      @keydown="onKeyDown"
+    />
     <button class="search-button" @click="onSearch">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +30,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const searchQuery = ref("");
 
-const onSearch = () => {
+const handleOnSearch = () => {
   if (
     searchQuery.value === null ||
     searchQuery.value === undefined ||
@@ -34,6 +39,13 @@ const onSearch = () => {
     return;
 
   router.push({ path: "/results", query: { search: searchQuery.value } });
+};
+
+const onKeyDown = (event) => {
+  if (event.code === "Enter" || event.code === "NumpadEnter") {
+    event.preventDefault();
+    handleOnSearch();
+  }
 };
 </script>
 
