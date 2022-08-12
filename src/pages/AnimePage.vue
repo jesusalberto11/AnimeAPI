@@ -19,20 +19,24 @@
             />
           </div>
           <div class="anime-synopis-background">
+            <div class="anime-stats">
+              <h3>Ratings:</h3>
+              <br />
+
+              <p>
+                Score: {{ anime?.score }} - Scored by
+                {{ anime?.scored_by }} users
+              </p>
+              <p>Ranked #{{ anime?.rank }}</p>
+              <p>Popularity rank #{{ anime?.popularity }}</p>
+              <p>Number of favorites: {{ anime?.favorites }}</p>
+              <hr />
+            </div>
+            <br />
             <h3>Synopis:</h3>
             <br />
             <div class="anime-synopis">
               <p>{{ anime?.synopsis }}</p>
-            </div>
-            <hr />
-            <br />
-            <h3>Background:</h3>
-            <br />
-            <div class="anime-background">
-              <p v-if="anime?.background">{{ anime?.background }}</p>
-              <p v-else>
-                <i>This Anime hasn't a registered background yet...</i>
-              </p>
             </div>
             <hr />
           </div>
@@ -47,7 +51,26 @@
             </div>
           </div>
           <div class="anime-ratings">
-            <h3>Ratings:</h3>
+            <h3>Information:</h3>
+            <br />
+            <div class="information">
+              <p>Type: {{ anime?.type }}</p>
+              <p>Number of episodes: {{ anime?.episodes }}</p>
+              <p>Duration: {{ anime?.duration }}</p>
+              <p>Status: {{ anime?.status }}</p>
+              <p>Aired: {{ anime?.aired.string }}</p>
+              <p>Rating: {{ anime?.rating }}</p>
+            </div>
+            <br />
+            <h3>Background:</h3>
+            <br />
+            <div class="anime-background">
+              <p v-if="anime?.background">{{ anime?.background }}</p>
+              <p v-else>
+                <i>This Anime hasn't a registered background yet...</i>
+              </p>
+            </div>
+            <hr />
           </div>
         </div>
       </transition>
@@ -115,13 +138,13 @@ onMounted(() => {
 .anime-synopis,
 .anime-background {
   font-size: small;
-  max-height: 100px;
+  max-height: 120px;
   overflow-y: auto;
 }
 
 .anime-ratings {
   grid-area: ratings;
-  background-color: cornflowerblue;
+  padding: 10px 10px;
 }
 
 .trailer {
