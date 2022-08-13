@@ -1,5 +1,5 @@
 <template>
-  <transition-group name="list" tag="div" class="list-container" appear>
+  <div class="list-container">
     <div v-for="anime in props.animes" v-bind:key="anime.mal_id">
       <AnimeCard
         :title="anime?.title"
@@ -7,14 +7,26 @@
         @click="onClickCard(anime?.mal_id)"
       />
     </div>
-  </transition-group>
+    <NPagination
+      v-model:page="currentPage"
+      :page-count="100"
+      size="large"
+      :on-update:page="onChangePagination"
+    />
+  </div>
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, ref } from "vue";
 import { useRouter } from "vue-router";
+import { NPagination } from "naive-ui";
+import { useAnime } from "@/composable/useAnime";
 
 import AnimeCard from "./AnimeCard.vue";
+
+const { fetchAnimeList } = useAnime();
+
+const currentPage = ref(1);
 
 const router = useRouter();
 
@@ -30,6 +42,13 @@ const onClickCard = (animeId) => {
     name: "anime",
     params: { id: animeId },
   });
+};
+
+const onChangePagination = (page) => {
+  console.log(page);
+  fetchAnimeList(page);
+
+  currentPage.value = page;
 };
 </script>
 
