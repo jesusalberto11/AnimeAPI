@@ -2,11 +2,11 @@
   <div class="search-bar">
     <input
       type="text"
-      placeholder="Buscar anime..."
+      placeholder="Search anime..."
       v-model="searchQuery"
       @keydown="onKeyDown"
     />
-    <button class="search-button" @click="onSearch">
+    <button class="search-button" @click="handleOnSearch">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
