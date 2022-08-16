@@ -21,7 +21,7 @@
       </div>
     </router-link>
     <router-link to="/top">
-      <div class="sidebar-item">
+      <div class="sidebar-item" :class="{ selected: actualRoute === 'top' }">
         <div class="image">
           <svg
             xmlns="http://www.w3.org/2000/svg"
