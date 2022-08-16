@@ -1,15 +1,33 @@
 <template>
   <div class="top-animes-container">
-    <h1>Hello world top-animes</h1>
+    <div v-if="isLoading">
+      <h1>Loading...</h1>
+    </div>
+    <div v-else>
+      <AnimeList :animes="animes" />
+    </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted } from "vue";
+import { useAnime } from "@/composable/useAnime";
+import AnimeList from "@/components/AnimeList/AnimeList.vue";
+
+const { animes, isLoading, fetchTopAnimes } = useAnime();
+
+onMounted(() => {
+  fetchTopAnimes();
+});
+</script>
 
 <style scoped>
 .top-animes-container {
+  height: 100%;
+  width: 100%;
+
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 </style>
