@@ -58,6 +58,21 @@ export const useAnime = () => {
     animeStore.setLoading(false);
   };
 
+  /* Fetch top animes */
+  const fetchTopAnimes = () => {
+    animeStore.setLoading(true);
+
+    axios
+      .get("https://api.jikan.moe/v4/top/anime")
+      .then((response) => onTopAnimesResponse(response))
+      .catch((error) => console.log("Error in fetchAnimeList: ", error));
+  };
+
+  const onTopAnimesResponse = (response) => {
+    animeStore.setAnimes(response.data.data);
+    animeStore.setLoading(false);
+  };
+
   return {
     // Propierties
     animes,
@@ -68,5 +83,6 @@ export const useAnime = () => {
     fetchAnimeList,
     fetchAnime,
     fetchAnimeQuery,
+    fetchTopAnimes,
   };
 };
