@@ -9,10 +9,18 @@
       </div>
     </div>
     <div class="skeleton-main-info">
-      <h1>LEL</h1>
+      <SkeletonLoader :type="'text'" height="30px" width="50%" />
+      <div class="skeleton-synopsis">
+        <SkeletonLoader :type="'box'" height="100%" width="100%" />
+      </div>
+      <SkeletonLoader :type="'text'" height="30px" width="50%" />
+      <div class="skeleton-synopsis">
+        <SkeletonLoader :type="'box'" height="100%" width="100%" />
+      </div>
     </div>
     <div class="skeleton-trailer">
       <h1>LEL</h1>
+      <div class="trailer">Trailer</div>
     </div>
     <div class="skeleton-second-info">
       <h1>LEL</h1>
@@ -61,7 +69,18 @@ import SkeletonLoader from "../layout/SkeletonLoader.vue";
 
 .skeleton-main-info {
   grid-area: maininfo;
-  background-color: cadetblue;
+  padding: 10px 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+
+.skeleton-synopsis {
+  height: 120px;
+  width: 100%;
 }
 
 .skeleton-trailer {
