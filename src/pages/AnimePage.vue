@@ -1,6 +1,8 @@
 <template>
   <div class="anime-page-container">
-    <h3 v-if="isLoading">Loading...</h3>
+    <div v-if="isLoading">
+      <SkeletonPage />
+    </div>
     <div v-else>
       <transition name="fade" mode="out-in" appear>
         <AnimeDetailsCard :anime="anime" />
@@ -13,7 +15,9 @@
 import { onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { useAnime } from "../composable/useAnime";
+
 import AnimeDetailsCard from "@/components/AnimePage/AnimeDetailsCard.vue";
+import SkeletonPage from "@/components/Skeletons/SkeletonPage.vue";
 
 const route = useRoute();
 const { anime, isLoading, fetchAnime } = useAnime();
