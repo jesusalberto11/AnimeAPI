@@ -1,6 +1,7 @@
 <template>
   <div class="top-animes-container">
     <div v-if="isLoading">
+      <SkeletonList />
       <h1>Loading...</h1>
     </div>
     <div v-else>
@@ -13,6 +14,7 @@
 import { onMounted } from "vue";
 import { useAnime } from "@/composable/useAnime";
 import AnimeList from "@/components/AnimeList/AnimeList.vue";
+import SkeletonList from "@/components/Skeletons/SkeletonList.vue";
 
 const { animes, isLoading, fetchTopAnimes } = useAnime();
 
