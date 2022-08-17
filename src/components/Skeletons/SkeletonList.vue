@@ -1,28 +1,47 @@
 <template>
   <div class="skeleton-list-container">
-    <h1>Hello world skeleton-list</h1>
-    <div class="skeleton-card-body">
-      <div class="skeleton-card-image">
-        <SkeletonLoader :type="'box'" height="100%" width="100%" />
-      </div>
-      <div class="skeleton-card-title">
-        <SkeletonLoader :type="'text'" width="100%" />
-        <SkeletonLoader :type="'text'" width="90%" />
-        <SkeletonLoader :type="'text'" width="50%" />
+    <div v-for="i in props?.length" :key="i">
+      <div class="skeleton-card-body">
+        <div class="skeleton-card-image">
+          <SkeletonLoader :type="'box'" height="100%" width="100%" />
+        </div>
+        <div class="skeleton-card-title">
+          <SkeletonLoader :type="'text'" width="100%" />
+          <SkeletonLoader :type="'text'" width="90%" />
+          <SkeletonLoader :type="'text'" width="50%" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { defineProps } from "vue";
 import SkeletonLoader from "../layout/SkeletonLoader.vue";
+
+const props = defineProps({
+  length: {
+    type: Number,
+    required: false,
+    default: 10,
+  },
+});
 </script>
 
 <style scoped>
 .skeleton-list-container {
+  height: 100vh;
+  width: 100%;
+
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+  padding-top: 25px;
+  padding-bottom: 100px;
 }
 
 .skeleton-card-body {
