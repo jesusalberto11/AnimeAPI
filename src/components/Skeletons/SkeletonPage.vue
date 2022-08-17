@@ -19,11 +19,18 @@
       </div>
     </div>
     <div class="skeleton-trailer">
-      <h1>LEL</h1>
-      <div class="trailer">Trailer</div>
+      <SkeletonLoader :type="'text'" height="30px" width="50%" />
+      <div class="trailer"></div>
     </div>
     <div class="skeleton-second-info">
-      <h1>LEL</h1>
+      <SkeletonLoader :type="'text'" height="30px" width="50%" />
+      <div class="skeleton-synopsis">
+        <SkeletonLoader :type="'box'" height="100%" width="100%" />
+      </div>
+      <SkeletonLoader :type="'text'" height="30px" width="50%" />
+      <div class="skeleton-synopsis">
+        <SkeletonLoader :type="'box'" height="100%" width="100%" />
+      </div>
     </div>
   </div>
 </template>
@@ -85,12 +92,31 @@ import SkeletonLoader from "../layout/SkeletonLoader.vue";
 
 .skeleton-trailer {
   grid-area: trailer;
-  background-color: blue;
+  padding: 25px 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+
+.trailer {
+  width: 420px;
+  height: 315px;
+  background-color: dimgray;
+  padding: 25px 25px;
 }
 
 .skeleton-second-info {
   grid-area: secondinfo;
-  background-color: brown;
+  padding: 10px 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
 }
 
 @media screen and (max-width: 1348px) {
@@ -101,6 +127,13 @@ import SkeletonLoader from "../layout/SkeletonLoader.vue";
       "maininfo maininfo"
       "trailer trailer"
       "secondinfo secondinfo";
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .trailer {
+    width: 210px;
+    height: 175px;
   }
 }
 </style>
