@@ -13,7 +13,10 @@
     <h3>Synopis:</h3>
     <br />
     <div class="anime-synopis">
-      <p>{{ props?.synopsis }}</p>
+      <p v-if="props?.synopsis">{{ props?.synopsis }}</p>
+      <p v-else>
+        <i>This Anime hasn't a registered synopsis yet...</i>
+      </p>
     </div>
     <hr />
   </div>
