@@ -62,8 +62,11 @@
       </div>
       <a>Top 25 Characters</a>
     </div>
-    <router-link to="/mangas">
-      <div class="sidebar-item" :class="{ selected: actualRoute === 'mangas' }">
+    <router-link to="/top-mangas">
+      <div
+        class="sidebar-item"
+        :class="{ selected: actualRoute === 'top-mangas' }"
+      >
         <div class="image">
           <svg
             xmlns="http://www.w3.org/2000/svg"
