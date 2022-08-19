@@ -24,8 +24,6 @@ const currentPage = ref(page.value);
 const emit = defineEmits(["onPagination"]);
 
 watch(route, (currentValue) => {
-  console.log(currentValue.query.page);
-  console.log(route.name);
   if (route.name !== "animes") return;
 
   if (
