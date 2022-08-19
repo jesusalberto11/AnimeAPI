@@ -59,6 +59,7 @@ export const useAnime = () => {
   };
 
   /* Fetch top animes */
+
   const fetchTopAnimes = () => {
     animeStore.setLoading(true);
 
@@ -73,8 +74,58 @@ export const useAnime = () => {
     animeStore.setLoading(false);
   };
 
+  /* Change the current page for pagination */
+
   const setPage = (page) => {
     animeStore.setPage(page);
+  };
+
+  /* Fetch top 25 characters */
+
+  const fetchTopCharacters = () => {
+    animeStore.setLoading(true);
+
+    axios
+      .get("https://api.jikan.moe/v4/top/characters")
+      .then((response) => onTopCharactersResponse(response))
+      .catch((error) => console.log("Error in fetchMangaList: ", error));
+  };
+
+  const onTopCharactersResponse = (response) => {
+    animeStore.setAnimes(response.data.data);
+    animeStore.setLoading(false);
+  };
+
+  /* Fetch top 25 mangas */
+
+  const fetchTopMangas = () => {
+    animeStore.setLoading(true);
+
+    axios
+      .get("https://api.jikan.moe/v4/top/manga")
+      .then((response) => onTopMangasResponse(response))
+      .catch((error) => console.log("Error in fetchMangaList: ", error));
+  };
+
+  const onTopMangasResponse = (response) => {
+    animeStore.setAnimes(response.data.data);
+    animeStore.setLoading(false);
+  };
+
+  /* Fetch top 25 people */
+
+  const fetchTopPeople = () => {
+    animeStore.setLoading(true);
+
+    axios
+      .get("https://api.jikan.moe/v4/top/manga")
+      .then((response) => onTopPeopleResponse(response))
+      .catch((error) => console.log("Error in fetchMangaList: ", error));
+  };
+
+  const onTopPeopleResponse = (response) => {
+    animeStore.setAnimes(response.data.data);
+    animeStore.setLoading(false);
   };
 
   return {
@@ -90,5 +141,8 @@ export const useAnime = () => {
     fetchAnimeQuery,
     fetchTopAnimes,
     setPage,
+    fetchTopMangas,
+    fetchTopCharacters,
+    fetchTopPeople,
   };
 };
