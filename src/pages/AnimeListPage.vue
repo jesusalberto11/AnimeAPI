@@ -21,7 +21,6 @@ import AppPagination from "../components/layout/AppPagination.vue";
 
 const router = useRouter();
 const { animes, isLoading, fetchAnimeList, page } = useAnime();
-
 const pageref = ref(null);
 
 onMounted(() => {

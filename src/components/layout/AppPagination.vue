@@ -1,6 +1,6 @@
 <template>
   <div class="pagination-container">
-    <div class="pagination-button">First page</div>
+    <div class="pagination-button" @click="goToFirstPage">First page</div>
     <div class="pagination-button" @click="goToPreviousPage">
       {{ "<-" }} Previous page
     </div>
@@ -12,12 +12,35 @@
 </template>
 
 <script setup>
-import { ref, defineEmits } from "vue";
+import { ref, defineEmits, watch } from "vue";
+import { useRoute } from "vue-router";
+
 import { useAnime } from "@/composable/useAnime";
+
+const route = useRoute();
 
 const { page, setPage } = useAnime();
 const currentPage = ref(page.value);
 const emit = defineEmits(["onPagination"]);
+
+watch(route, (currentValue) => {
+  console.log(currentValue.query.page);
+  console.log(route.name);
+  if (route.name !== "animes") return;
+
+  if (
+    currentValue.query.page === null ||
+    currentValue.query.page === undefined
+  ) {
+    goToFirstPage();
+  }
+});
+
+const goToFirstPage = () => {
+  setPage(1);
+  currentPage.value = 1;
+  emit("onPagination");
+};
 
 const goToNextPage = () => {
   currentPage.value += 1;
