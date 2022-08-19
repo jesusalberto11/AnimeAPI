@@ -1,32 +1,38 @@
 <template>
-  <div class="page-container" :class="{ overflow: !isLoading }" ref="page">
+  <div class="page-container" :class="{ overflow: !isLoading }" ref="pageref">
     <div v-if="isLoading">
       <SkeletonList />
     </div>
     <div v-else>
       <AnimeList :animes="animes" />
     </div>
-    <AppPagination @scroll-to-top="scrollToTop" />
+    <AppPagination @on-pagination="handlePaginationClick" />
   </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 import { useAnime } from "@/composable/useAnime.js";
+
 import AnimeList from "../components/AnimeList/AnimeList.vue";
 import SkeletonList from "@/components/Skeletons/SkeletonList.vue";
 import AppPagination from "../components/layout/AppPagination.vue";
 
-const { animes, isLoading, fetchAnimeList } = useAnime();
+const router = useRouter();
+const { animes, isLoading, fetchAnimeList, page } = useAnime();
 
-const page = ref(null);
+const pageref = ref(null);
 
 onMounted(() => {
-  fetchAnimeList();
+  router.replace({ path: "/animes", query: { page: page.value } });
+  fetchAnimeList(page.value);
 });
 
-const scrollToTop = () => {
-  page.value.scrollTop = 0;
+const handlePaginationClick = () => {
+  pageref.value.scrollTop = 0;
+  fetchAnimeList(page.value);
+  router.replace({ path: "/animes", query: { page: page.value } });
 };
 </script>
 

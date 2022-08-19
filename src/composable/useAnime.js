@@ -5,7 +5,7 @@ import { useStore } from "@/store";
 export const useAnime = () => {
   const animeStore = useStore();
 
-  const { animes, anime, isLoading } = storeToRefs(animeStore);
+  const { animes, anime, isLoading, page } = storeToRefs(animeStore);
 
   /* Fetch anime data and setup in the store */
 
@@ -73,16 +73,22 @@ export const useAnime = () => {
     animeStore.setLoading(false);
   };
 
+  const setPage = (page) => {
+    animeStore.setPage(page);
+  };
+
   return {
     // Propierties
     animes,
     anime,
     isLoading,
+    page,
 
     // Methods
     fetchAnimeList,
     fetchAnime,
     fetchAnimeQuery,
     fetchTopAnimes,
+    setPage,
   };
 };

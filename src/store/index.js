@@ -6,6 +6,7 @@ export const useStore = defineStore("anime", {
       animes: [],
       anime: null,
       isLoading: true,
+      page: 1,
     };
   },
   getters: {
@@ -23,6 +24,10 @@ export const useStore = defineStore("anime", {
     setLoading(value) {
       if (value === null || value === undefined) return;
       this.isLoading = value;
+    },
+    setPage(value) {
+      if (value === null || value === undefined) return;
+      this.page = value;
     },
   },
 });
