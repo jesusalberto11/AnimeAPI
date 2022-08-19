@@ -19,7 +19,7 @@ const routes = [
   { path: "/results", name: "results", component: SearchResultsPage },
   { path: "/about", name: "about", component: AboutPage },
   { path: "/top-mangas", name: "top-mangas", component: TopMangasPage },
-  { path: "/manga/:id", name: "mangas", component: MangaPage },
+  { path: "/manga/:id", name: "manga", component: MangaPage },
   { path: "/:pathMatch(.*)*", name: "not-found", component: PathNotFound },
 ];
 
