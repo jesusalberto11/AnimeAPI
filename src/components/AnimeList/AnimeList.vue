@@ -35,7 +35,7 @@ const onClickCard = (animeId) => {
 
 <style scoped>
 .list-container {
-  height: 100vh;
+  height: 100%;
   width: 100%;
 
   display: flex;
@@ -46,9 +46,6 @@ const onClickCard = (animeId) => {
   gap: 25px;
 
   padding-top: 25px;
-  padding-bottom: 100px;
-
-  overflow-y: scroll;
 }
 
 .list-enter-active,
