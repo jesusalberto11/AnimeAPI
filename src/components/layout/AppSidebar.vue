@@ -37,7 +37,7 @@
             />
           </svg>
         </div>
-        <a>Top animes</a>
+        <a>Top 25 animes</a>
       </div>
     </router-link>
     <div class="sidebar-item">
@@ -60,7 +60,7 @@
           <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
         </svg>
       </div>
-      <a>Top Characters</a>
+      <a>Top 25 Characters</a>
     </div>
     <router-link to="/mangas">
       <div class="sidebar-item" :class="{ selected: actualRoute === 'mangas' }">
@@ -78,7 +78,7 @@
             />
           </svg>
         </div>
-        <a>Manga</a>
+        <a>Top 25 Mangas</a>
       </div>
     </router-link>
     <div class="sidebar-item">
@@ -97,7 +97,7 @@
           />
         </svg>
       </div>
-      <a>Reviews</a>
+      <a>Top 25 People</a>
     </div>
     <hr />
     <router-link to="/about">
