@@ -34,12 +34,14 @@ This is project is a client side web page, created using:
 ### :camera: Screenshots
 
 <div align="center"> 
+  <hr/>
   <img src="https://github.com/jesusalberto11/AnimeAPI/blob/main/src/assets/my-animes-1.png" alt="Api_Image_1"/>
   <img src="https://github.com/jesusalberto11/AnimeAPI/blob/main/src/assets/my-animes-2.png" alt="Api_Image_2"/>
   <img src="https://github.com/jesusalberto11/AnimeAPI/blob/main/src/assets/my-animes-3.png" alt="Api_Image_3"/>
   <img src="https://github.com/jesusalberto11/AnimeAPI/blob/main/src/assets/my-animes-4.png" alt="Api_Image_4"/>
   <img src="https://github.com/jesusalberto11/AnimeAPI/blob/main/src/assets/my-animes-5.png" alt="Api_Image_5"/>
   <img src="https://github.com/jesusalberto11/AnimeAPI/blob/main/src/assets/my-animes-6.png" alt="Api_Image_6"/>
+  <hr/>
 </div>
 
 <!-- TechStack -->
