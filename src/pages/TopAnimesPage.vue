@@ -1,5 +1,5 @@
 <template>
-  <div class="top-animes-container">
+  <div class="top-animes-container" :class="{ overflow: !isLoading }">
     <div v-if="isLoading">
       <SkeletonList />
     </div>
@@ -25,11 +25,15 @@ onMounted(() => {
 
 <style scoped>
 .top-animes-container {
-  height: 100%;
+  height: 100vh;
   width: 100%;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-rows: auto 100px;
+  grid-template-areas: "list";
+}
+
+.overflow {
+  overflow-y: scroll;
 }
 </style>
