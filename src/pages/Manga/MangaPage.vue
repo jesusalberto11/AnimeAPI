@@ -1,6 +1,6 @@
 <template>
   <div class="manga-page-container">
-    <h1>Hello from mang page!</h1>
+    <h1>Ups! This isn't done yet 🥴🥴🥴🥴🥴🥴</h1>
   </div>
 </template>
 
