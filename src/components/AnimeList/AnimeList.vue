@@ -1,5 +1,5 @@
 <template>
-  <transition-group name="list" tag="div" class="list-container" appear>
+  <div class="list-container">
     <div v-for="anime in props.animes" v-bind:key="anime.mal_id">
       <AnimeCard
         :title="anime?.title"
@@ -7,7 +7,7 @@
         @click="onClickCard(anime?.mal_id)"
       />
     </div>
-  </transition-group>
+  </div>
 </template>
 
 <script setup>
@@ -46,15 +46,5 @@ const onClickCard = (animeId) => {
   gap: 25px;
 
   padding-top: 25px;
-}
-
-.list-enter-active,
-.list-leave-active {
-  transition: all 0.5s ease;
-}
-
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
 }
 </style>

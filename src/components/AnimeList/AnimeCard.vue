@@ -1,13 +1,15 @@
 <template>
-  <div class="anime-card">
-    <img
-      v-bind:src="props?.imageSource"
-      v-bind:alt="props?.title"
-      v-bind:height="340"
-      v-bind:width="220"
-    />
-    <p class="anime-title" :class="checkTitleLength">{{ props?.title }}</p>
-  </div>
+  <transition-group name="card" tag="div" appear>
+    <div class="anime-card" :key="props?.title">
+      <img
+        v-bind:src="props?.imageSource"
+        v-bind:alt="props?.title"
+        v-bind:height="340"
+        v-bind:width="220"
+      />
+      <p class="card-title" :class="checkTitleLength">{{ props?.title }}</p>
+    </div>
+  </transition-group>
 </template>
 
 <script setup>
@@ -39,7 +41,7 @@ const checkTitleLength = computed(() => {
   box-shadow: 0 0 5px yellow, 0 0 5px yellowgreen, 0 0 10px yellow;
 }
 
-.anime-title {
+.card-title {
   background-color: brown;
   display: flex;
   justify-content: center;
@@ -73,5 +75,15 @@ const checkTitleLength = computed(() => {
 .title-extra-short,
 .title-extra-extra-short {
   text-align: center;
+}
+
+.card-enter-active,
+.card-leave-active {
+  transition: all 0.5s ease;
+}
+
+.card-enter-from,
+.card-leave-to {
+  opacity: 0;
 }
 </style>
