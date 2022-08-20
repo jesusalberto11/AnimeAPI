@@ -1,13 +1,13 @@
 <template>
   <div class="pagination-container">
-    <div class="pagination-button" @click="goToFirstPage">First page</div>
-    <div class="pagination-button" @click="goToPreviousPage">
-      {{ "<-" }} Previous page
-    </div>
-    <div class="pagination-button" @click="goToNextPage">
-      Next page {{ "->" }}
-    </div>
-    <div class="pagination-button">Last page</div>
+    <button class="pagination-button" @click="goToFirstPage">First page</button>
+    <button class="pagination-button" @click="goToPreviousPage">
+      {{ "⮜" }} Previous page
+    </button>
+    <button class="pagination-button" @click="goToNextPage">
+      Next page {{ "⮞" }}
+    </button>
+    <button class="pagination-button">Last page</button>
   </div>
 </template>
 
@@ -69,7 +69,6 @@ const goToPreviousPage = () => {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  text-align: center;
   gap: 15px;
 }
 
@@ -81,9 +80,8 @@ const goToPreviousPage = () => {
   align-items: center;
   justify-content: center;
   text-align: center;
-
+  color: white;
   font-size: small;
-
   border-radius: 10px;
 }
 
