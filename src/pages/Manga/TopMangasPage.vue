@@ -1,7 +1,10 @@
 <template>
   <div class="manga-page-container">
-    <div class="manga-list">
-      <div v-for="manga in data?.data.data" :key="manga.mal_id">
+    <div v-if="isLoading">
+      <SkeletonList />
+    </div>
+    <div class="manga-list" v-else>
+      <div v-for="manga in mangas" :key="manga.mal_id">
         <AnimeCard
           :title="manga?.title"
           :imageSource="manga?.images.jpg.image_url"
@@ -13,20 +16,18 @@
 </template>
 
 <script setup>
-import axios from "axios";
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { useAnime } from "@/composable/useAnime";
 
 import AnimeCard from "@/components/AnimeList/AnimeCard.vue";
+import SkeletonList from "@/components/Skeletons/SkeletonList.vue";
 
-const data = ref(null);
+const { animes: mangas, fetchTopMangas, isLoading } = useAnime();
 const router = useRouter();
 
 onMounted(() => {
-  axios
-    .get("https://api.jikan.moe/v4/top/manga")
-    .then((response) => (data.value = response))
-    .catch((error) => console.log("Error in MangaFetch: ", error));
+  fetchTopMangas();
 });
 
 const onClickCard = (mangaID) => {
