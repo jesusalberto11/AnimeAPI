@@ -1,7 +1,7 @@
 <div align="center">
   <!-- <img src="src/assets/rick_morty_logo.png" alt="logo" width="300" height="auto" /> -->
   <h1>MyAnimes</h1>
-  <a href="https://my-anime-api-hosting.web.app/animes?page=1" target="_SEJ" rel="”noreferrer”"> Click here to see the project live</a>
+  <a href="https://my-anime-api-hosting.web.app/animes?page=1" target="_SEJ" rel="”noreferrer”">Click here to see the project live</a>
 </div>
 
 <!-- Table of Contents -->
