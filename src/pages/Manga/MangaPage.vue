@@ -1,49 +1,56 @@
 <template>
   <div class="manga-page-container">
-    <AnimeDetailsTitle
-      :title="manga?.title"
-      :titleEnglish="manga?.title_english"
-    />
-    <div class="manga-logo">
-      <img
-        v-bind:src="manga?.images.jpg.image_url"
-        v-bind:alt="manga?.title"
-        v-bind:height="340"
-        v-bind:width="220"
-      />
+    <div v-if="isLoading">
+      <SkeletonPage />
     </div>
-    <AnimeDetailsMainInfo
-      :score="manga?.score"
-      :scoredBy="manga?.scored_by"
-      :rank="manga?.rank"
-      :popularity="manga?.popularity"
-      :favorites="manga?.favorites"
-      :synopsis="manga?.synopsis"
-    />
+    <div v-else>
+      <transition name="fade" mode="out-in" appear>
+        <div class="manga-page">
+          <AnimeDetailsTitle
+            :title="manga?.title"
+            :titleEnglish="manga?.title_english"
+          />
+          <div class="manga-logo">
+            <img
+              v-bind:src="manga?.images.jpg.image_url"
+              v-bind:alt="manga?.title"
+              v-bind:height="340"
+              v-bind:width="220"
+            />
+          </div>
+          <AnimeDetailsMainInfo
+            :score="manga?.score"
+            :scoredBy="manga?.scored_by"
+            :rank="manga?.rank"
+            :popularity="manga?.popularity"
+            :favorites="manga?.favorites"
+            :synopsis="manga?.synopsis"
+          />
+        </div>
+      </transition>
+    </div>
   </div>
 </template>
 
 <script setup>
-import axios from "axios";
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 import { useRoute } from "vue-router";
+import { useAnime } from "@/composable/useAnime";
 
 import AnimeDetailsTitle from "@/components/AnimePage/AnimeDetailsTitle.vue";
 import AnimeDetailsMainInfo from "@/components/AnimePage/AnimeDetailsMainInfo.vue";
+import SkeletonPage from "@/components/Skeletons/SkeletonPage.vue";
 
 const route = useRoute();
-const manga = ref(null);
+const { anime: manga, isLoading, fetchManga } = useAnime();
 
 onMounted(() => {
-  axios
-    .get(`https://api.jikan.moe/v4/manga/${route.params?.id}/full`)
-    .then((response) => (manga.value = response.data.data))
-    .catch((error) => console.log("Error in fetchManga: ", error));
+  fetchManga(route.params?.id);
 });
 </script>
 
 <style scoped>
-.manga-page-container {
+.manga-page {
   height: 100vh;
   width: 100%;
 
@@ -72,7 +79,7 @@ onMounted(() => {
 }
 
 @media screen and (max-width: 1348px) {
-  .manga-page-container {
+  .manga-page {
     grid-template-areas:
       "title title"
       "logo logo"
