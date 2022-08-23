@@ -2,7 +2,7 @@
   <div class="anime-details-container">
     <AnimeDetailsTitle
       :title="props.anime?.title"
-      :ttitleEnglish="props.anime?.title_english"
+      :titleEnglish="props.anime?.title_english"
     />
     <div class="anime-logo">
       <img
