@@ -112,6 +112,23 @@ export const useAnime = () => {
     animeStore.setLoading(false);
   };
 
+  /* Fetch single manga data and setup in the store */
+
+  const fetchManga = (id) => {
+    animeStore.setLoading(true);
+    let animeURL = `https://api.jikan.moe/v4/manga/${id}/full`;
+
+    axios
+      .get(animeURL)
+      .then((response) => onMangaResponse(response))
+      .catch((error) => console.log("Error in fetchAnime: ", error));
+  };
+
+  const onMangaResponse = (response) => {
+    animeStore.setAnime(response.data.data);
+    animeStore.setLoading(false);
+  };
+
   /* Fetch top 25 people */
 
   const fetchTopPeople = () => {
@@ -144,5 +161,6 @@ export const useAnime = () => {
     fetchTopMangas,
     fetchTopCharacters,
     fetchTopPeople,
+    fetchManga,
   };
 };
