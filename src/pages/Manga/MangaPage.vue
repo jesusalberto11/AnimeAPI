@@ -1,10 +1,25 @@
 <template>
   <div class="manga-page-container">
-    <p>{{ manga?.title }}</p>
-    <p>Score: {{ manga?.score }}</p>
-    <p>Rank: {{ manga?.rank }}</p>
-    <p>{{ manga?.synopsis }}</p>
-    <p>{{ manga?.background }}</p>
+    <AnimeDetailsTitle
+      :title="manga?.title"
+      :titleEnglish="manga?.title_english"
+    />
+    <div class="manga-logo">
+      <img
+        v-bind:src="manga?.images.jpg.image_url"
+        v-bind:alt="manga?.title"
+        v-bind:height="340"
+        v-bind:width="220"
+      />
+    </div>
+    <AnimeDetailsMainInfo
+      :score="manga?.score"
+      :scoredBy="manga?.scored_by"
+      :rank="manga?.rank"
+      :popularity="manga?.popularity"
+      :favorites="manga?.favorites"
+      :synopsis="manga?.synopsis"
+    />
   </div>
 </template>
 
@@ -12,6 +27,9 @@
 import axios from "axios";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
+
+import AnimeDetailsTitle from "@/components/AnimePage/AnimeDetailsTitle.vue";
+import AnimeDetailsMainInfo from "@/components/AnimePage/AnimeDetailsMainInfo.vue";
 
 const route = useRoute();
 const manga = ref(null);
@@ -26,12 +44,39 @@ onMounted(() => {
 
 <style scoped>
 .manga-page-container {
-  height: 100%;
+  height: 100vh;
   width: 100%;
 
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 20% 340px;
+  grid-template-areas:
+    "title title"
+    "logo maininfo"
+    "logo maininfo";
+
+  overflow-y: scroll;
+
+  padding-bottom: 100px;
+}
+
+.manga-logo {
+  grid-area: logo;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+
+.manga-details {
+  grid-area: maininfo;
+  padding-right: 50px;
+}
+
+@media screen and (max-width: 1348px) {
+  .manga-page-container {
+    grid-template-areas:
+      "title title"
+      "logo logo"
+      "maininfo maininfo";
+  }
 }
 </style>
