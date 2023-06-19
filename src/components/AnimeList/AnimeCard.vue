@@ -2,10 +2,9 @@
   <transition-group name="card" tag="div" appear>
     <div class="anime-card" :key="props?.title">
       <img
+        class="anime-card-image"
         v-bind:src="props?.imageSource"
         v-bind:alt="props?.title"
-        v-bind:height="340"
-        v-bind:width="220"
       />
       <p class="card-title" :class="checkTitleLength">{{ props?.title }}</p>
     </div>
@@ -39,6 +38,11 @@ const checkTitleLength = computed(() => {
 <style scoped>
 .anime-card:hover {
   box-shadow: 0 0 5px yellow, 0 0 5px yellowgreen, 0 0 10px yellow;
+}
+
+.anime-card-image {
+  height: 320px;
+  width: 220px;
 }
 
 .card-title {
@@ -85,5 +89,16 @@ const checkTitleLength = computed(() => {
 .card-enter-from,
 .card-leave-to {
   opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .anime-card-image {
+    height: 280px;
+    width: 170px;
+  }
+
+  .card-title {
+    width: 170px;
+  }
 }
 </style>
