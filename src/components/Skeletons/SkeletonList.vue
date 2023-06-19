@@ -69,4 +69,15 @@ const props = defineProps({
   padding-left: 10px;
   padding-right: 10px;
 }
+
+@media screen and (max-width: 768px) {
+  .skeleton-card-image {
+    height: 280px;
+    width: 170px;
+  }
+
+  .skeleton-card-title {
+    width: 170px;
+  }
+}
 </style>
