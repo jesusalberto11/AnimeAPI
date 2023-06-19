@@ -31,13 +31,11 @@ import AppSearchBar from "./AppSearchBar.vue";
 <style>
 .header {
   grid-area: header;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: auto 1fr;
+
+  display: flex;
   align-items: center;
-  justify-content: space-between;
-  grid-gap: 20px;
-  grid-template-areas: "logo search";
+  justify-content: space-evenly;
+
   background-color: #2f2f2f;
 }
 
