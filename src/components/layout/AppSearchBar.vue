@@ -72,4 +72,24 @@ const onKeyDown = (event) => {
   border: 3px solid #ccc;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .search-bar {
+    max-width: 80%;
+  }
+
+  .search-button {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 667px) {
+  .search-bar {
+    max-width: 45%;
+  }
+
+  .search-button {
+    width: 40%;
+  }
+}
 </style>
