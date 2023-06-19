@@ -25,37 +25,6 @@ const toggleSidebar = () => {
 </script>
 
 <style>
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-*::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: #b3b3b3;
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-*::-webkit-scrollbar-thumb:active {
-  background-color: #999999;
-}
-
-body {
-  color: #fff;
-  font-family: "Inter", sans-serif;
-  overflow-y: hidden;
-}
-
 .app-container {
   height: 100vh;
   width: 100vw;
