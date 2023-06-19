@@ -1,7 +1,10 @@
 <template>
   <div class="app-container">
     <AppHeader @expand-sidebar="toggleSidebar" />
-    <AppSidebar :class="{ sidebarActive: isSidebarExpanded }" />
+    <AppSidebar
+      :class="{ sidebarActive: isSidebarExpanded }"
+      @expand-sidebar="toggleSidebar"
+    />
     <main class="main-content" :class="{ active: isSidebarExpanded }">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">

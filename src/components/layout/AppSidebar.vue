@@ -2,7 +2,11 @@
   <aside class="sidebar">
     <hr />
     <router-link to="/animes">
-      <div class="sidebar-item" :class="{ selected: actualRoute === 'animes' }">
+      <div
+        class="sidebar-item"
+        :class="{ selected: actualRoute === 'animes' }"
+        @click="$emit('expandSidebar')"
+      >
         <div class="image">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +25,11 @@
       </div>
     </router-link>
     <router-link to="/top">
-      <div class="sidebar-item" :class="{ selected: actualRoute === 'top' }">
+      <div
+        class="sidebar-item"
+        :class="{ selected: actualRoute === 'top' }"
+        @click="$emit('expandSidebar')"
+      >
         <div class="image">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -66,6 +74,7 @@
       <div
         class="sidebar-item"
         :class="{ selected: actualRoute === 'top-mangas' }"
+        @click="$emit('expandSidebar')"
       >
         <div class="image">
           <svg
@@ -104,7 +113,11 @@
     </div>
     <hr />
     <router-link to="/about">
-      <div class="sidebar-item" :class="{ selected: actualRoute === 'about' }">
+      <div
+        class="sidebar-item"
+        :class="{ selected: actualRoute === 'about' }"
+        @click="$emit('expandSidebar')"
+      >
         <div class="image">
           <svg
             xmlns="http://www.w3.org/2000/svg"
