@@ -20,6 +20,7 @@
         <a class="logo"><span class="logo-name">MYANIMES</span></a>
       </router-link>
     </div>
+
     <AppSearchBar />
   </header>
 </template>
@@ -34,7 +35,8 @@ import AppSearchBar from "./AppSearchBar.vue";
 
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  gap: 30px;
 
   background-color: #2f2f2f;
 }
@@ -46,7 +48,7 @@ import AppSearchBar from "./AppSearchBar.vue";
   align-items: center;
   gap: 20px;
 
-  padding-left: 45px;
+  padding-left: 65px;
 }
 
 .logo-name {
@@ -66,5 +68,17 @@ import AppSearchBar from "./AppSearchBar.vue";
   top: 12px;
   left: 15px;
   z-index: 999999;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 0px;
+  }
+
+  .logo-container {
+    padding-left: 40px;
+  }
 }
 </style>

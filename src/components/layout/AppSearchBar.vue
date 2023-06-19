@@ -51,7 +51,10 @@ const onKeyDown = (event) => {
 
 <style scoped>
 .search-bar {
-  grid-area: search;
+  width: 100%;
+
+  padding-right: 15px;
+
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -76,6 +79,7 @@ const onKeyDown = (event) => {
 @media screen and (max-width: 768px) {
   .search-bar {
     max-width: 80%;
+    padding-right: 0px;
   }
 
   .search-button {
