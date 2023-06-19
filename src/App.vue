@@ -1,8 +1,8 @@
 <template>
-  <div class="app-container" :class="{ active: isSidebarExpanded }">
+  <div class="app-container">
     <AppHeader @expand-sidebar="toggleSidebar" />
-    <AppSidebar />
-    <main class="main-content">
+    <AppSidebar :class="{ sidebarActive: isSidebarExpanded }" />
+    <main class="main-content" :class="{ active: isSidebarExpanded }">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
@@ -57,25 +57,27 @@ body {
 }
 
 .app-container {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
+
   display: grid;
-  grid-template-columns: 90px auto;
+  grid-template-columns: 1fr;
   grid-template-rows: 60px auto;
   grid-template-areas:
     "header header"
-    "sidebar content";
+    "content content";
+
   transition: all 0.3s ease;
 }
 
-.app-container.active {
-  grid-template-columns: minmax(300px, 18%) auto;
+.main-content.active {
+  padding-left: 300px;
 }
 
 .main-content {
   grid-area: content;
   background-color: #181818;
+  transition: all 0.3s ease;
 }
 
 .fade-enter-from,
@@ -86,5 +88,11 @@ body {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.2s ease-out;
+}
+
+@media screen and (max-width: 768px) {
+  .main-content.active {
+    padding-left: 0px;
+  }
 }
 </style>
