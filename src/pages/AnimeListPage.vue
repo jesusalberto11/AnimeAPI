@@ -42,6 +42,7 @@ const handlePaginationClick = () => {
 
   display: grid;
   grid-template-rows: auto 200px;
+  grid-template-columns: 1fr;
   grid-template-areas:
     "list"
     "pagination";

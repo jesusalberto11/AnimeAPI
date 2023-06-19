@@ -66,6 +66,7 @@ const goToPreviousPage = () => {
   background-color: brown;
 
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
@@ -74,13 +75,16 @@ const goToPreviousPage = () => {
 
 .pagination-button {
   background-color: rgb(83, 21, 21);
+  color: white;
+
   height: 50px;
   width: 150px;
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
+
   font-size: small;
   border-radius: 10px;
 }
@@ -89,5 +93,11 @@ const goToPreviousPage = () => {
   cursor: pointer;
   box-shadow: 0 0 5px yellow, 0 0 5px yellowgreen, 0 0 10px yellow;
   background-color: rgb(65, 1, 184);
+}
+
+@media screen and (max-width: 768px) {
+  .pagination-button {
+    height: 40px;
+  }
 }
 </style>
