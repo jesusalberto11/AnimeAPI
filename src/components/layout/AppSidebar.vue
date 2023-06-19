@@ -164,6 +164,19 @@ watch(route, (currentRoute) => {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: fixed;
+
+  padding-top: 90px;
+  height: 100%;
+  width: 300px;
+  left: -300px;
+
+  z-index: 99999;
+  transition: all 0.3s;
+}
+
+.sidebarActive {
+  left: 0px;
 }
 
 .sidebar a {
@@ -177,6 +190,12 @@ watch(route, (currentRoute) => {
   flex-direction: row;
   gap: 40px;
   color: #dfdfdf;
+
+  transition: all 0.2s;
+}
+
+.sidebar-item:hover {
+  padding-left: 50px;
 }
 
 .image {
