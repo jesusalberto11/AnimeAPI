@@ -47,6 +47,8 @@ import AppSearchBar from "./AppSearchBar.vue";
   flex-direction: row;
   align-items: center;
   gap: 20px;
+
+  padding-left: 45px;
 }
 
 .logo-name {
@@ -57,9 +59,14 @@ import AppSearchBar from "./AppSearchBar.vue";
 }
 
 .menu-button {
-  min-width: 25%;
   height: 35px;
+  width: 35px;
   border: 3px solid #ccc;
   cursor: pointer;
+
+  position: fixed;
+  top: 12px;
+  left: 15px;
+  z-index: 999999;
 }
 </style>
