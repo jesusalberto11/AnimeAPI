@@ -1,6 +1,8 @@
 <template>
   <aside class="sidebar">
     <hr />
+    <h3 class="sidebar-header">MYANIMES</h3>
+    <hr />
     <router-link to="/animes">
       <div
         class="sidebar-item"
@@ -182,7 +184,7 @@ watch(route, (currentRoute) => {
   flex-direction: column;
   position: fixed;
 
-  padding-top: 90px;
+  padding-top: 40px;
   height: 100%;
   width: 300px;
   left: -300px;
@@ -197,6 +199,10 @@ watch(route, (currentRoute) => {
 
 .sidebar a {
   text-decoration: none;
+}
+
+.sidebar-header {
+  text-align: center;
 }
 
 .sidebar-item {
