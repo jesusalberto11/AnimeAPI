@@ -61,19 +61,22 @@ const onKeyDown = (event) => {
 }
 
 .search-bar input {
-  min-width: 40%;
-  padding: 0 15px;
   height: 35px;
+  min-width: 40%;
+
+  padding: 0 15px;
+
   line-height: 35px;
-  border: 3px solid #ccc;
+  border: 3px solid var(--APP-SEARCH-BAR-INPUT-BORDER-COLOR);
 }
 
 .search-button {
-  min-width: 5%;
+  cursor: pointer;
 
   height: 35px;
-  border: 3px solid #ccc;
-  cursor: pointer;
+  min-width: 5%;
+
+  border: 3px solid var(--APP-SEARCH-BUTTON-BORDER-COLOR);
 }
 
 @media screen and (max-width: 768px) {

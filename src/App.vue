@@ -45,7 +45,7 @@ const toggleSidebar = () => {
 
 .main-content {
   grid-area: content;
-  background-color: #181818;
+  background-color: var(--BACKGROUND-COLOR);
   transition: all 0.3s ease;
 }
 

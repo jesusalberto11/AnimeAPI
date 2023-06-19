@@ -38,7 +38,7 @@ import AppSearchBar from "./AppSearchBar.vue";
   justify-content: flex-start;
   gap: 30px;
 
-  background-color: #2f2f2f;
+  background-color: var(--APP-HEADER-BACKGROUND-COLOR);
 }
 
 .logo-container {

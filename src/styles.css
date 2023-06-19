@@ -1,6 +1,38 @@
+:root {
+  --FONT-FAMILY: "Inter", sans-serif;
+
+  --BACKGROUND-COLOR: #181818;
+  --FONT-COLOR: #fff;
+
+  --APP-HEADER-BACKGROUND-COLOR: #2f2f2f;
+  --APP-SEARCH-BAR-INPUT-BORDER-COLOR: #ccc;
+  --APP-SEARCH-BUTTON-BORDER-COLOR: #ccc;
+
+  --APP-SIDEBAR-BACKGROUND-COLOR: #2f2f2f;
+  --APP-SIDEBAR-ITEM-TEXT-COLOR: #dfdfdf;
+  --APP-SIDEBAR-ITEM-HOVER-BACKGROUND-COLOR: #e5e5e5;
+  --APP-SIDEBAR-ITEM-HOVER-TEXT-COLOR: #2f2f2f;
+  --APP-SIDEBAR-ACTIVE-ITEM-BACKGROUND-COLOR: #e5e5e5;
+  --APP-SIDEBAR-ACTIVE-ITEM-TEXT-COLOR: #2f2f2f;
+  --APP-SIDEBAR-HR-BACKGROUND-COLOR: #dfdfdf;
+
+  --APP-PAGINATION-BACKGROUND-COLOR: brown;
+  --APP-PAGINATION-BUTTON-BACKGROUND-COLOR: rgb(83, 21, 21);
+  --APP-PAGINATION-TEXT-BACKGROUND-COLOR: #fff;
+  --APP-PAGINATION-BUTTON-HOVER-BACKGROUND-COLOR: rgb(65, 1, 184);
+
+  --SCROLLBAR-BACKGROUND-COLOR: #ccc;
+  --SCROLLBAR-HOVER-BACKGROUND-COLOR: #b3b3b3;
+  --SCROLLBAR-HOVER-ACTIVE-COLOR: #999999;
+
+  --ANIME-CARD-TITLE-BACKGROUND-COLOR: brown;
+  --ANIME-PAGE-NO-TRAILER: dimgray;
+}
+
 body {
-  color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: var(--FONT-FAMILY);
+  color: var(--FONT-COLOR);
+
   overflow-y: hidden;
 }
 
@@ -16,15 +48,15 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: var(--SCROLLBAR-BACKGROUND-COLOR);
   border-radius: 4px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #b3b3b3;
+  background: var(--SCROLLBAR-HOVER-BACKGROUND-COLOR);
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 *::-webkit-scrollbar-thumb:active {
-  background-color: #999999;
+  background-color: var(--SCROLLBAR-HOVER-ACTIVE-COLOR);
 }

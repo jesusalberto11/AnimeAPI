@@ -61,9 +61,10 @@ const goToPreviousPage = () => {
 .pagination-container {
   grid-area: pagination;
 
+  background-color: var(--APP-PAGINATION-BACKGROUND-COLOR);
+
   height: 150px;
   width: 100%;
-  background-color: brown;
 
   display: flex;
   flex-wrap: wrap;
@@ -74,8 +75,10 @@ const goToPreviousPage = () => {
 }
 
 .pagination-button {
-  background-color: rgb(83, 21, 21);
-  color: white;
+  cursor: pointer;
+
+  background-color: var(--APP-PAGINATION-BUTTON-BACKGROUND-COLOR);
+  color: var(--APP-PAGINATION-TEXT-BACKGROUND-COLOR);
 
   height: 50px;
   width: 150px;
@@ -90,9 +93,8 @@ const goToPreviousPage = () => {
 }
 
 .pagination-button:hover {
-  cursor: pointer;
+  background-color: var(--APP-PAGINATION-BUTTON-HOVER-BACKGROUND-COLOR);
   box-shadow: 0 0 5px yellow, 0 0 5px yellowgreen, 0 0 10px yellow;
-  background-color: rgb(65, 1, 184);
 }
 
 @media screen and (max-width: 768px) {

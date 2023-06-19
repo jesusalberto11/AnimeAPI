@@ -160,8 +160,11 @@ watch(route, (currentRoute) => {
 <style>
 .sidebar {
   grid-area: sidebar;
-  background-color: #2f2f2f;
+
+  background-color: var(--APP-SIDEBAR-BACKGROUND-COLOR);
+
   overflow: hidden;
+
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -184,12 +187,14 @@ watch(route, (currentRoute) => {
 }
 
 .sidebar-item {
-  padding: 15px 35px;
+  color: var(--APP-SIDEBAR-ITEM-TEXT-COLOR);
+
   min-width: 800px;
+  padding: 15px 35px;
+
   display: flex;
   flex-direction: row;
-  gap: 40px;
-  color: #dfdfdf;
+  gap: 30px;
 
   transition: all 0.2s;
 }
@@ -201,6 +206,7 @@ watch(route, (currentRoute) => {
 .image {
   height: 20px;
   width: 20px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,19 +217,21 @@ watch(route, (currentRoute) => {
 }
 
 .sidebar-item:hover {
-  background-color: #e5e5e5;
-  color: #2f2f2f;
   cursor: pointer;
+
+  background-color: var(--APP-SIDEBAR-ITEM-HOVER-BACKGROUND-COLOR);
+  color: var(--APP-SIDEBAR-ITEM-HOVER-TEXT-COLOR);
 }
 
 .selected {
-  background-color: #e5e5e5;
-  color: #2f2f2f;
   font-weight: bold;
+
+  background-color: var(--APP-SIDEBAR-ACTIVE-ITEM-BACKGROUND-COLOR);
+  color: var(--APP-SIDEBAR-ACTIVE-ITEM-TEXT-COLOR);
 }
 
 .sidebar hr {
   margin: 20px 0;
-  border: 1px solid #dfdfdf;
+  border: 1px solid var(--APP-SIDEBAR-HR-BACKGROUND-COLOR);
 }
 </style>

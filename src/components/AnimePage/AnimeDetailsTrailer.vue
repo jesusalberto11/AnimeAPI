@@ -49,7 +49,7 @@ const props = defineProps({
   text-align: center;
   width: 420px;
   height: 315px;
-  background-color: dimgray;
+  background-color: var(--ANIME-PAGE-NO-TRAILER);
 
   padding: 25px 25px;
 }

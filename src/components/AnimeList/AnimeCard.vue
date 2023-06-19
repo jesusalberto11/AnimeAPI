@@ -36,6 +36,10 @@ const checkTitleLength = computed(() => {
 </script>
 
 <style scoped>
+.anime-card {
+  cursor: pointer;
+}
+
 .anime-card:hover {
   box-shadow: 0 0 5px yellow, 0 0 5px yellowgreen, 0 0 10px yellow;
 }
@@ -46,14 +50,18 @@ const checkTitleLength = computed(() => {
 }
 
 .card-title {
-  background-color: brown;
+  background-color: var(--ANIME-CARD-TITLE-BACKGROUND-COLOR);
+
+  height: 50px;
+  width: 220px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   font-size: 18px;
   text-align: center;
-  height: 50px;
-  width: 220px;
+
   padding-left: 10px;
   padding-right: 10px;
 }

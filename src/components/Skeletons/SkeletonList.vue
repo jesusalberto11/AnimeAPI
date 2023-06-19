@@ -57,15 +57,19 @@ const props = defineProps({
 }
 
 .skeleton-card-title {
-  background-color: brown;
+  background-color: var(--ANIME-CARD-TITLE-BACKGROUND-COLOR);
+
+  height: 50px;
+  width: 220px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
   font-size: 18px;
   text-align: center;
-  height: 50px;
-  width: 220px;
+
   padding-left: 10px;
   padding-right: 10px;
 }
