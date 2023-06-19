@@ -17,7 +17,7 @@
         </svg>
       </button>
       <router-link to="/">
-        <a class="logo"><span class="logo-name">MYANIMES</span></a>
+        <a class="logo"><p class="logo-name">MYANIMES</p></a>
       </router-link>
     </div>
 
@@ -52,10 +52,9 @@ import AppSearchBar from "./AppSearchBar.vue";
 }
 
 .logo-name {
-  font-family: "Roboto Mono";
+  color: #fff;
   font-weight: bold;
   font-size: 20px;
-  color: #fff;
 }
 
 .menu-button {

@@ -52,7 +52,7 @@ const toggleSidebar = () => {
 
 body {
   color: #fff;
-  font-family: "Roboto Mono";
+  font-family: "Inter", sans-serif;
   overflow-y: hidden;
 }
 
