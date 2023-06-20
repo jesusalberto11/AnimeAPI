@@ -5,6 +5,10 @@
       :class="{ sidebarActive: isSidebarExpanded }"
       @expand-sidebar="toggleSidebar"
     />
+    <AppSidebarCloseZone
+      :class="{ 'active-sidebar-close-zone': isSidebarExpanded }"
+      @expand-sidebar="toggleSidebar"
+    />
     <main class="main-content" :class="{ active: isSidebarExpanded }">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
@@ -19,6 +23,7 @@
 import { ref } from "vue";
 import AppHeader from "./components/layout/AppHeader.vue";
 import AppSidebar from "./components/layout/AppSidebar.vue";
+import AppSidebarCloseZone from "./components/layout/AppSidebarCloseZone.vue";
 
 const isSidebarExpanded = ref(false);
 
